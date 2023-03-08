@@ -9,12 +9,12 @@ const getCountryByName = (countryName) => {
 //2. Population information about a country 
 const displayCountryPopulation = (country) => {
     
-    // The id of the <p> tag in the <section> in HTML, so the info about the country will appear here 
+    // The id of the <p> tag in the <section> in the HTML file, so the info about the country will appear here 
     // on the webpage and not inside the button
     const section = document.getElementById("country_population_info");
-    // Create a h3 element so the info will be printed as a <h3> tag
+    // Creates a h3 element so the info will be printed as a <h3> tag
     const name = document.createElement('h3');
-    // So the population info is printed as a <p>
+    // Created the population info is printed as a <p>
     const population = document.createElement('p');
     
     // Using .name.common means we can type the name of the country either using how the country's name is actually spelt
@@ -29,11 +29,11 @@ const displayCountryPopulation = (country) => {
     section.appendChild(population);
 }
 
-// This adds an event listener to the button created in the HTML file so now when we click it, it will return the above information
+// This adds an event listener to the button so now when we click it, it will return the above information
 // (name and population) of the country written in the brackets below
 document.getElementById("country_info").addEventListener("click", () => {
     
-    getCountryByName("US")
+    getCountryByName("Saint Vincent and the Grenadines")
     .then(country => {
         displayCountryPopulation(country);
     })
@@ -43,8 +43,8 @@ document.getElementById("country_info").addEventListener("click", () => {
 //3. Return population information about all countries
 const getAllCountries = () => {
 
-   // New URL added in which has all the information for all countries
-   // This ferches the countries from the URL
+   // New URL used here which has all the information for all countries
+   // This fetches the countries from the URL
     fetch("https://restcountries.com/v3.1/all")
       .then(response => response.json())
       .then(countries => {
@@ -54,7 +54,7 @@ const getAllCountries = () => {
 
 const showAllCountries = (countries) => {
    
-    // This is the id for the whole <section> in the html file
+    // This is the id for the <section> in the html file
     const section = document.getElementById("countries");
     // Creates an empty unordered list
     const ul = document.createElement('ul');
@@ -64,7 +64,7 @@ const showAllCountries = (countries) => {
     // For every country, do the below
     countries.forEach(country => {
        
-        // Create a list item
+        // Creates a list item
         const li = document.createElement('li');
        
         const name = document.createElement('h3');
